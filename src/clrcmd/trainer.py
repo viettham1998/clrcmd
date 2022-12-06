@@ -28,7 +28,8 @@ class STSTrainer(Trainer):
             inputs2 = self._prepare_inputs(inputs["inputs2"])
             label = self._prepare_inputs(inputs["label"])
             # make sure the model is unwrapped from distributed modules
-            score = unwrap_model(model).model(inputs1, inputs2)
-
+            #score = unwrap_model(model).model(inputs1, inputs2)
+            score = model.module.model(inputs1, inputs2)
+            
         model.train()
         return (None, score, label)
