@@ -91,7 +91,7 @@ def main():
         eval_dataset=eval_dataset,
         tokenizer=tokenizer,
         compute_metrics=compute_metrics,
-        callbackes=[],
+        callbacks=[],
     )
     train_result = trainer.train()
     logger.info(train_result)
