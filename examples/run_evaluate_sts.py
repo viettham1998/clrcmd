@@ -41,6 +41,7 @@ def main():
     # Create tokenizer and model
     tokenizer = create_tokenizer(args.model)
     model = create_contrastive_learning(args.model).to(device)
+    model = torch.nn.DataParallel(model)
 
     # Load method
     if args.checkpoint is not None:
